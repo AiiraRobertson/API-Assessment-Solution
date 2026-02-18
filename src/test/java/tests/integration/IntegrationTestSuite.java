@@ -11,11 +11,6 @@ import org.testng.annotations.Test;
 
 import java.util.Map;
 
-/**
- * Integration Test Suite
- * Validates the interaction between multiple API endpoints in sequence.
- * Tests multi-step workflows to ensure endpoints work together correctly.
- */
 public class IntegrationTestSuite extends BaseSetup {
 
     private ActivityService activityService;

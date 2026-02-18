@@ -15,17 +15,6 @@ import java.util.Map;
  * Regression Test Suite
  *
  * Ensures that existing functionality remains intact when changes are introduced.
- *
- * This suite re-validates all critical API operations (CRUD) and also simulates
- * a code change scenario to demonstrate how regression tests catch breaking changes.
- *
- * Regression Testing Process:
- * 1. Run the full regression suite against the current API - all tests should PASS.
- * 2. A simulated code change is represented by the "simulatedCodeChange" tests,
- *    which use a modified payload or altered expectations to mimic what would happen
- *    if a developer changed the API contract (e.g., renamed a field, changed a default).
- * 3. If any regression test fails, it indicates that the change broke existing behavior.
- * 4. Results are documented in the ExtentReport and README.
  */
 public class RegressionTestSuite extends BaseSetup {
 
@@ -38,10 +27,6 @@ public class RegressionTestSuite extends BaseSetup {
         activityService = new ActivityService();
         dataFactory = new RequestDataFactory();
     }
-
-    // ==========================================
-    // Core CRUD Regression Tests
-    // ==========================================
 
     @Test(groups = "regression", priority = 1)
     public void regressionCreateActivity() {
@@ -143,9 +128,6 @@ public class RegressionTestSuite extends BaseSetup {
         report.pass("Response structure is unchanged - all expected fields are present");
     }
 
-    // ==========================================
-    // Simulated Code Change Tests
-    // ==========================================
     // These tests demonstrate what happens when a "code change" alters behavior.
     // In a real scenario, if a developer changed the API response format or
     // modified default values, these tests would catch the regression.

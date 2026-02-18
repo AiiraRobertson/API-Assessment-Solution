@@ -12,11 +12,6 @@ import org.testng.annotations.Test;
 
 import java.util.Map;
 
-/**
- * Functional Test Suite
- * Validates the correctness and effectiveness of each API endpoint.
- * Covers positive and negative scenarios, data validation, and header checks.
- */
 public class FunctionalTestSuite extends BaseSetup {
 
     private ActivityService activityService;
@@ -29,14 +24,10 @@ public class FunctionalTestSuite extends BaseSetup {
         dataFactory = new RequestDataFactory();
     }
 
-    // --- DataProvider for parameterized activity ID tests ---
-
     @DataProvider(name = "validActivityIds")
     public Object[][] validActivityIds() {
         return new Object[][]{{1}, {5}, {10}, {20}, {30}};
     }
-
-    // --- Positive Functional Tests ---
 
     @Test(groups = "functional", priority = 1)
     public void testCreateActivityWithValidData() {
@@ -126,8 +117,6 @@ public class FunctionalTestSuite extends BaseSetup {
         report.pass("API handled minimal payload gracefully with status: " + statusCode);
     }
 
-    // --- Response Structure & Header Validation ---
-
     @Test(groups = "functional", priority = 7)
     public void testResponseContainsCorrectContentType() {
         report = reportManager.createTest("Functional: Verify Content-Type Header");
@@ -152,7 +141,7 @@ public class FunctionalTestSuite extends BaseSetup {
         ResponseValidator.assertFieldNotNull(response, "id");
         ResponseValidator.assertFieldNotNull(response, "title");
         ResponseValidator.assertFieldNotNull(response, "dueDate");
-        // 'completed' can be true or false, but must exist
+        
         Assert.assertNotNull(response.jsonPath().get("completed"),
                 "Field 'completed' should be present in the response");
 
