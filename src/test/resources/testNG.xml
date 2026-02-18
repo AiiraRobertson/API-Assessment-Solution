@@ -1,0 +1,34 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API Test Automation Suite" verbose="1">
+
+    <test name="Smoke Tests">
+        <classes>
+            <class name="tests.smoke.SmokeTestSuite"/>
+        </classes>
+    </test>
+
+    <test name="Functional Tests">
+        <classes>
+            <class name="tests.functional.FunctionalTestSuite"/>
+        </classes>
+    </test>
+
+    <test name="Integration Tests">
+        <classes>
+            <class name="tests.integration.IntegrationTestSuite"/>
+        </classes>
+    </test>
+
+    <test name="Performance Tests">
+        <classes>
+            <class name="tests.performance.PerformanceTestSuite"/>
+        </classes>
+    </test>
+
+    <test name="Regression Tests">
+        <classes>
+            <class name="tests.regression.RegressionTestSuite"/>
+        </classes>
+    </test>
+
+</suite>
